@@ -32,5 +32,6 @@ mysql -u root -e "SHOW DATABASES";
 #Download started content
 cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/sidmat13/vagrantest/master/files/intex.html
+sudo -u vagrant wget -q https://raw.githubusercontent.com/sidmat13/vagrantest/master/files/info.php
 
 service httpd start
