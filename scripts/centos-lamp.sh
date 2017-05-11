@@ -6,6 +6,17 @@ yum update -y --exclude=kernel
 #Tools
 yum install -y subl git unzip screen
 
+#Apache
+yum install -y httpd httpd-devel httpd-tools
+chkconfig --add httpd
+chkconfig httpd on
+service httpd stop
+
+rm -rf /var/www/html
+ln -s /vagrant /var/www/html
+
+service httpd start
+
 #php
 yum install -y php php-cli php-common php-devel php-mysql
 
@@ -22,14 +33,5 @@ mysql -u root -e "SHOW DATABASES";
 cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/sidmat13/vagrantest/master/files/intex.html
 sudo -u vagrant wget -q https://raw.githubusercontent.com/sidmat13/vagrantest/master/files/info.php
-
-#Apache
-yum install -y httpd httpd-devel httpd-tools
-chkconfig --add httpd
-chkconfig httpd on
-service httpd stop
-
-rm -rf /var/www/html
-ln -s /vagrant /var/www/html
 
 service httpd start
